@@ -21,15 +21,11 @@
           success: function(data) {
             $(data.results).each(function(index, element) {
               console.log(element);
-              if (element.gender == "male") {
-              
-              $(".flexbox_container").append("<div class='api_item male'>" + element.name.first + " " + element.name.last + "<br/>" + element.gender + "<br/>" 
-              + "<img src=" + element.picture.large + ">"); 
-              }
-              else {
-                $(".flexbox_container").append("<div class='api_item female'>" + element.name.first + " " + element.name.last + "<br/>" + element.gender + "<br/>" 
-              + "<img src=" + element.picture.large + ">");   
-              }           
+              $(".flexbox_container").append(`<div class="api_item ${element.gender}">
+               ${element.name.first} ${element.name.last} <br/>
+              ${element.gender} <br>
+              <img src=${element.picture.large}>
+              </div>`);
             });
           }
       });   
@@ -56,7 +52,7 @@
 
   <div class="container">
     <div class="header">
-      <h1 id="h1">Willekeurige Smoeltjes</h1>
+      <h1 id="h1">Random Smoeltjes</h1>
     </div>
 
   <div class="toggle_container">
